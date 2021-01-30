@@ -1,11 +1,12 @@
 import { Route, BrowserRouter as Router, Switch, } from 'react-router-dom';
+import { GlobalProvider } from './context/Provider';
 // import './App.css';
 import { routes } from './routes';
 
 function App() {
   // const element = useRoutes(routes);
   return (
-    <div className="App">
+    <GlobalProvider >
       <Switch>
         {routes.map((route, index) => (
           <Route
@@ -16,7 +17,7 @@ function App() {
           </Route>
         ))}
       </Switch>
-    </div>
+    </GlobalProvider>
   );
 }
 
