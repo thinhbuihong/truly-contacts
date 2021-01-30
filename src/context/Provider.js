@@ -7,15 +7,15 @@ import contacts from './reducers/contacts';
 export const GlobalContext = createContext({});
 
 export const GlobalProvider = ({ children }) => {
-  const [authSate, authDisptach] = useReducer(auth, authInitialState);
+  const [authState, authDisptach] = useReducer(auth, authInitialState);
   const [contactsState, contactsDisptach] = useReducer(contacts, contactsInittialState);
 
   return (
     <GlobalContext.Provider
       value={{
-        authSate,
+        authState,
         authDisptach,
-        contacts,
+        contactsState,
         contactsDisptach
       }}>
       {children}
