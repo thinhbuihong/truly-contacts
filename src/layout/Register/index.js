@@ -28,24 +28,24 @@ function RegisterUI({ form: { onChange, form,
 
               <Form.Field>
                 <Form.Input placeholder="First Name"
-                  value={form.firstName || ""}
+                  value={form.first_name || ""}
                   onChange={onChange}
-                  error={FieldErrors.firstName && {
-                    content: FieldErrors.firstName,
+                  error={FieldErrors.first_name && {
+                    content: FieldErrors.first_name,
                     pointing: 'below'
                   }}
-                  name="firstName" label="First Name"></Form.Input>
+                  name="first_name" label="First Name"></Form.Input>
               </Form.Field>
 
               <Form.Field>
                 <Form.Input placeholder="Last Name"
-                  value={form.lastName || ""}
+                  value={form.last_name || ""}
                   onChange={onChange}
-                  error={FieldErrors.lastName && {
-                    content: FieldErrors.lastName,
+                  error={FieldErrors.last_name && {
+                    content: FieldErrors.last_name,
                     pointing: 'below'
                   }}
-                  name="lastName" label="Last Name"></Form.Input>
+                  name="last_name" label="Last Name"></Form.Input>
               </Form.Field>
 
               <Form.Field>
@@ -72,7 +72,7 @@ function RegisterUI({ form: { onChange, form,
 
 
               <Button loading={loading}
-                onSubmit={onSubmit} disabled={registerFormValid || loading}
+                onClick={onSubmit} disabled={registerFormValid || loading}
                 fluid primary type="submit">Submit</Button>
             </Form>
 

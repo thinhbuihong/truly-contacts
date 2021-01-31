@@ -3,12 +3,12 @@ import axiosInstance from "../../../helpers/axios";
 
 export const register = ({ email,
   password, username,
-  lastName, firstName }) => dispatch => {
+  last_name, first_name }) => dispatch => {
     dispatch({ type: REGISTER_LOADING, })
     axiosInstance.post("/auth/register", {
       email,
       password, username,
-      lastName, firstName
+      last_name, first_name
     })
       .then((res) => {
         dispatch({

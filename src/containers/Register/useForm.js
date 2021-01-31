@@ -44,8 +44,8 @@ function useForm() {
   // console.log('form', form)
 
   const registerFormValid = !form.username?.length ||
-    !form.firstName?.length ||
-    !form.lastName?.length ||
+    !form.first_name?.length ||
+    !form.last_name?.length ||
     !form.email?.length ||
     !form.password?.length;
 
