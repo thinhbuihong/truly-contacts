@@ -1,7 +1,21 @@
-import { Route, BrowserRouter as Router, Switch, } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, useHistory, } from 'react-router-dom';
 import { GlobalProvider } from './context/Provider';
 // import './App.css';
 import { routes } from './routes';
+import isAuthenticated from './utils/isAuthenticated';
+
+const RenderRoute = (route) => {
+  const history = useHistory()
+  if (route.needsAuth && !isAuthenticated()) {
+    history.push('/auth/login');
+  }
+  return (<Route
+    path={route.path}
+    exact
+    render={(props) => <route.component {...props} />}>
+
+  </Route>)
+}
 
 function App() {
   // const element = useRoutes(routes);
@@ -9,12 +23,7 @@ function App() {
     <GlobalProvider >
       <Switch>
         {routes.map((route, index) => (
-          <Route
-            path={route.path}
-            exact
-            render={(props) => <route.component {...props} />}
-            key={index}>
-          </Route>
+          <RenderRoute {...route} key={index} />
         ))}
       </Switch>
     </GlobalProvider>

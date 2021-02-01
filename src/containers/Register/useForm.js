@@ -28,7 +28,7 @@ function useForm() {
 
   useEffect(() => {
     if (data) {
-      history.push('auth/login');
+      history.push('/auth/login');
     }
   }, [data])
 

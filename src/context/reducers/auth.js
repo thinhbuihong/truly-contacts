@@ -1,8 +1,9 @@
-import { REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCES } from "../../constants/actionTypes";
+import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCES, REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCES } from "../../constants/actionTypes";
 
 const auth = (state, { type, payload }) => {
   switch (type) {
     case REGISTER_LOADING:
+    case LOGIN_LOADING:
       return {
         ...state,
         auth: {
@@ -13,6 +14,7 @@ const auth = (state, { type, payload }) => {
       }
 
     case REGISTER_SUCCES:
+    case LOGIN_SUCCES:
       return {
         ...state,
         auth: {
@@ -23,6 +25,7 @@ const auth = (state, { type, payload }) => {
       }
 
     case REGISTER_ERROR:
+    case LOGIN_ERROR:
       return {
         ...state,
         auth: {
